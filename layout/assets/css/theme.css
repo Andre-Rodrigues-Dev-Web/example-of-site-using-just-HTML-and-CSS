@@ -1,0 +1,264 @@
+/*Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  ul,
+  ol,
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  audio,
+  img,
+  iframe,
+  video {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+/*Grids*/
+.container {
+  margin: 0 auto;
+  width: 98%;
+  @media (width > 48em) {
+    width: 96%;
+  }
+}
+
+[class*="col-"] {
+  padding: 1em;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  @media (width > 48em) {
+    flex-direction: row;
+    .col-1 {
+      width: 8.33%;
+    }
+    .col-2 {
+      width: 16.66%;
+    }
+    .col-3 {
+      width: 25%;
+    }
+    .col-4 {
+      width: 33.33%;
+    }
+    .col-5 {
+      width: 41.66%;
+    }
+    .col-6 {
+      width: 50%;
+    }
+    .col-7 {
+      width: 58.33%;
+    }
+    .col-8 {
+      width: 66.66%;
+    }
+    .col-9 {
+      width: 75%;
+    }
+    .col-10 {
+      width: 83.33%;
+    }
+    .col-11 {
+      width: 91.66%;
+    }
+    .col-12 {
+      width: 100%;
+    }
+  }
+}
+
+/* Top */
+.top {
+  background-color: #223;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    padding: 1em;
+  }
+  #myButton {
+    display: none;
+  }
+  #myButton:checked + #menu {
+    display: block;
+    height: 100vh;
+    position: fixed;
+    top: 3em;
+    width: 100%;
+  }
+  .label-button {
+    cursor: pointer;
+    width: 3.6em;
+  }
+  #menu {
+    background-color: #222;
+    display: none;
+    z-index: 1000;
+    &.style-menu {
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 1em;
+        li {
+          a {
+            color: #fff;
+          }
+        }
+      }
+      @media (width > 48em) {
+        .links {
+          gap: 20px;
+          li {
+            a {
+              font-size: 1.2em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*Sections*/
+section {
+  .container {
+    h2 {
+      font-size: 4em;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+  }
+  @media (width > 48em) {
+    .container {
+      padding: 4em 0;
+      h2 {
+        font-size: 2em;
+      }
+    }
+  }
+}
+/*Carousel*/
+.carousel-container {
+  animation: slideAnimation 15s infinite;
+  display: flex;
+  height: 15em;
+  position: relative;
+  .item {
+    background-color: #1abc9c;
+    display: flex;
+    align-items: center;
+    flex: 0 0 100%;
+    justify-content: center;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    transform: translateX(1%);
+    width: 100%;
+  }
+}
+
+.item:nth-child(2) {
+  background-color: #3498db;
+}
+
+.item:nth-child(3) {
+  background-color: #9b59b6;
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  33.33% {
+    transform: translateX(-100%);
+  }
+  66.66% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*about-me*/
+.about-me {
+  .container {
+    img {
+      border-radius: 1em;
+      width: 100%;
+    }
+    @media (width > 48em) {
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+/*Galerry*/
+figure {
+  margin-left: 1.4em;
+  position: relative;
+  width: 300px;
+  z-index: ;
+  img {
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  #zoomImage1:checked + img,
+  #zoomImage2:checked + img,
+  #zoomImage3:checked + img {
+    transform: scale(1.2);
+    width: 400px;
+    z-index: 10000;
+  }
+  #zoomImage1:checked + label,
+  #zoomImage2:checked + label,
+  #zoomImage3:checked + label {
+    position: fixed;
+    transform: scale(1.2);
+    width: 400px;
+  }
+
+  label {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-weight: 600;
+    padding: 1em;
+    position: relative;
+    top: 3em;
+    z-index: 1000;
+  }
+}
